@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Mashead header-->
+<header class="masthead">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6">
+                <!-- Mashead text and app badges-->
+                <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                    <h1 class="display-1 lh-1 mb-3">Breast Cancer Prediction Service</h1>
+                    <p class="lead fw-normal text-muted mb-5">
+                        Welcome to my Breast Cancer Prediction Service. This web-based service uses machine learning models trained on the Wisconsin Breast Cancer (Diagnostic) dataset to predict whether a breast mass is malignant or benign, based on user-provided data. 
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <!-- Masthead device mockup feature-->
+                <div class="masthead-device-mockup">
+                    <div class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <img class="img-fluid rounded-circle" src="https://source.unsplash.com/kk-9vQ0pFxM/900x900" alt="..." />
+                        <circle cx="50" cy="50" r="50"></circle></div>
+                    <div class="device-wrapper">
+                        <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <aside class="text-center bg-gradient-primary-to-secondary" >
+                <div class="container px-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-xl-8">
+                            <div class="h2 fs-1 text-white mb-4">
+                                This project is a demonstration of my proficiency in building and deploying machine learning models. It involves various stages, such as data preprocessing, model building, model evaluation, and deploying the model in a web application using Flask and Docker.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</header>
+{% endblock %}
