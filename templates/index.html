@@ -26,18 +26,232 @@
                     </div>
                 </div>
             </div>
-            <aside class="text-center bg-gradient-primary-to-secondary" >
-                <div class="container px-5">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-xl-8">
-                            <div class="h2 fs-1 text-white mb-4">
-                                This project is a demonstration of my proficiency in building and deploying machine learning models. It involves various stages, such as data preprocessing, model building, model evaluation, and deploying the model in a web application using Flask and Docker.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
         </div>
     </div>
 </header>
+<!-- Prediction -->
+<div class="prediction-form container px-5">
+    <h2 class="display-1 lh-1 mb-4">Try it out!</h2>
+    <p class="lead fw-normal text-muted mb-4">The result will appear at the bottom of this form!</p>
+    <form action="{{ url_for('predict')}}" method="post">
+        <!-- Radius mean input-->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="radius_mean" type="text" placeholder="Radius mean" required />
+            <label for="radius_mean" aria-labelledby="radiusMeanHelpBlock">Radius mean</label>
+            <div id="radiusMeanHelpBlock" class="form-text">Value range: 6.98 - 28.1</div>
+        </div>
+        <!-- Texture mean input-->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="texture_mean" type="text" placeholder="Texture mean" required />
+            <label for="texture_mean" aria-labelledby="textureMeanHelpBlock">Texture mean</label>
+            <div id="radiusMeanHelpBlock" class="form-text">Value range: 9.71 - 39.28</div>
+        </div>
+        <!-- Perimeter mean input-->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="perimeter_mean" type="text" placeholder="Perimeter mean" required />
+            <label for="perimeter_mean" aria-labelledby="perimeterMeanHelpBlock">Perimeter mean</label>
+            <div id="perimeterMeanHelpBlock" class="form-text">Value range: 43.8 - 189</div>
+            <div class="invalid-feedback">A perimeter mean is required.</div>
+        </div>
+        <!-- Area mean input-->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="area_mean" type="text" placeholder="Area mean" required />
+            <label for="area_mean" aria-labelledby="areaMeanHelpBlock">Area mean</label>
+            <div id="areaMeanHelpBlock" class="form-text">Value range: 144 - 2.5k</div>
+            <div class="invalid-feedback">An area mean is required.</div>
+        </div>
+        <!-- Smoothness mean input-->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="smoothness_mean" type="text" placeholder="Smoothness mean" required />
+            <label for="smoothness_mean" aria-labelledby="smoothnessMeanHelpBlock">Smoothness mean</label>
+            <div id="smoothnessMeanHelpBlock" class="form-text">Value range: 0.05 - 0.16</div>
+            <div class="invalid-feedback">A smoothness mean is required.</div>
+        </div>
+        <!-- Compactness mean input-->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="compactness_mean" type="text" placeholder="Compactness mean" required />
+            <label for="compactness_mean" aria-labelledby="compactnessMeanHelpBlock">Compactness mean</label>
+            <div id="compactnessMeanHelpBlock" class="form-text">Value range: 0.02 - 0.35</div>
+            <div class="invalid-feedback">A compactness mean is required.</div>
+        </div>
+        <!-- Concavity mean input-->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="concavity_mean" type="text" placeholder="Concavity mean" required />
+            <label for="concavity_mean" aria-labelledby="concavityMeanHelpBlock">Concavity mean</label>
+            <div id="concavityMeanHelpBlock" class="form-text">Value range: 0 - 0.43</div>
+            <div class="invalid-feedback">A concavity mean is required.</div>
+        </div>
+        <!-- Concave points mean input-->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="concave points_mean" type="text" placeholder="Concave points mean" required />
+            <label for="concave points_mean" aria-labelledby="concavePointsMeanHelpBlock">Concave points mean</label>
+            <div id="concavePointsMeanHelpBlock" class="form-text">Value range: 0 - 0.2</div>
+            <div class="invalid-feedback">A concave points mean is required.</div>
+        </div>
+        <!-- Symmetry mean input-->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="symmetry_mean" type="text" placeholder="Symmetry mean" required />
+            <label for="symmetry_mean" aria-labelledby="symmetryMeanHelpBlock">Symmetry mean</label>
+            <div id="symmetryMeanHelpBlock" class="form-text">Value range: 0.11 - 0.3</div>
+            <div class="invalid-feedback">A symmetry mean is required.</div>
+        </div>
+        <!-- Fractal dimension mean input-->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="fractal_dimension_mean" type="text" placeholder="Fractal dimension mean" required />
+            <label for="fractal_dimension_mean" aria-labelledby="fractalDimensionMeanHelpBlock">Fractal dimension mean</label>
+            <div id="fractalDimensionMeanHelpBlock" class="form-text">Value range: 0.05 - 0.1</div>
+            <div class="invalid-feedback">A fractal dimension mean is required.</div>
+        </div>
+        <!-- Radius SE input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="radius_se" type="text" placeholder="Radius SE" required />
+            <label for="radius_se" aria-labelledby="radiusSEHelpBlock">Radius SE</label>
+            <div id="radiusSEHelpBlock" class="form-text">Value range: 0.11 - 2.87</div>
+            <div class="invalid-feedback">A radius SE is required.</div>
+        </div>
+        <!-- Texture SE input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="texture_se" type="text" placeholder="Texture SE" required />
+            <label for="texture_se" aria-labelledby="textureSEHelpBlock">Texture SE</label>
+            <div id="textureSEHelpBlock" class="form-text">Value range: 0.36 - 4.88</div>
+            <div class="invalid-feedback">A texture SE is required.</div>
+        </div>
+        <!-- Perimeter SE input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="perimeter_se" type="text" placeholder="Perimeter SE" required />
+            <label for="perimeter_se" aria-labelledby="perimeterSEHelpBlock">Perimeter SE</label>
+            <div id="perimeterSEHelpBlock" class="form-text">Value range: 0.76 - 21.98</div>
+            <div class="invalid-feedback">A perimeter SE is required.</div>
+        </div>
+        <!-- Area SE input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="area_se" type="text" placeholder="Area SE" required />
+            <label for="area_se" aria-labelledby="areaSEHelpBlock">Area SE</label>
+            <div id="areaSEHelpBlock" class="form-text">Value range: 6.8 - 542.2</div>
+            <div class="invalid-feedback">An area SE is required.</div>
+        </div>
+        <!-- Smoothness SE input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="smoothness_se" type="text" placeholder="Smoothness SE" required />
+            <label for="smoothness_se" aria-labelledby="smoothnessSEHelpBlock">Smoothness SE</label>
+            <div id="smoothnessSEHelpBlock" class="form-text">Value range: 0.01 - 0.1</div>
+            <div class="invalid-feedback">A smoothness SE is required.</div>
+        </div>
+        <!-- Compactness SE input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="compactness_se" type="text" placeholder="Compactness SE" required />
+            <label for="compactness_se" aria-labelledby="compactnessSEHelpBlock">Compactness SE</label>
+            <div id="compactnessSEHelpBlock" class="form-text">Value range: 0.002 - 0.3</div>
+            <div class="invalid-feedback">A compactness SE is required.</div>
+        </div>
+        <!-- Concavity SE input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="concavity_se" type="text" placeholder="Concavity SE" required />
+            <label for="concavity_se" aria-labelledby="concavitySEHelpBlock">Concavity SE</label>
+            <div id="concavitySEHelpBlock" class="form-text">Value range: 0 - 0.4</div>
+            <div class="invalid-feedback">A concavity SE is required.</div>
+        </div>
+        <!-- Concave points SE input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="concave points_se" type="text" placeholder="Concave points SE" required />
+            <label for="concave points_se" aria-labelledby="concavePointsSEHelpBlock">Concave points SE</label>
+            <div id="concavePointsSEHelpBlock" class="form-text">Value range: 0 - 0.05</div>
+            <div class="invalid-feedback">A concave points SE is required.</div>
+        </div>
+        <!-- Symmetry SE input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="symmetry_se" type="text" placeholder="Symmetry SE" required />
+            <label for="symmetry_se" aria-labelledby="symmetrySEHelpBlock">Symmetry SE</label>
+            <div id="symmetrySEHelpBlock" class="form-text">Value range: 0.01 - 0.08</div>
+            <div class="invalid-feedback">A symmetry SE is required.</div>
+        </div>
+        <!-- Fractal dimension SE input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="fractal_dimension_se" type="text" placeholder="Fractal dimension SE" required />
+            <label for="fractal_dimension_se" aria-labelledby="fractalDimensionSEHelpBlock">Fractal dimension SE</label>
+            <div id="fractalDimensionSEHelpBlock" class="form-text">Value range: 0.001 - 0.03</div>
+            <div class="invalid-feedback">A fractal dimension SE is required.</div>
+        </div>
+        <!-- Radius worst input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="radius_worst" type="text" placeholder="Radius worst" required />
+            <label for="radius_worst" aria-labelledby="radiusWorstHelpBlock">Radius worst</label>
+            <div id="radiusWorstHelpBlock" class="form-text">Value range: 7.93 - 36.04</div>
+            <div class="invalid-feedback">A radius worst is required.</div>
+        </div>
+        <!-- Texture worst input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="texture_worst" type="text" placeholder="Texture worst" required />
+            <label for="texture_worst" aria-labelledby="textureWorstHelpBlock">Texture worst</label>
+            <div id="textureWorstHelpBlock" class="form-text">Value range: 12.02 - 49.54</div>
+            <div class="invalid-feedback">A texture worst is required.</div>
+        </div>
+        <!-- Perimeter worst input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="perimeter_worst" type="text" placeholder="Perimeter worst" required />
+            <label for="perimeter_worst" aria-labelledby="perimeterWorstHelpBlock">Perimeter worst</label>
+            <div id="perimeterWorstHelpBlock" class="form-text">Value range: 50.41 - 251.2</div>
+            <div class="invalid-feedback">A perimeter worst is required.</div>
+        </div>
+        <!-- Area worst input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="area_worst" type="text" placeholder="Area worst" required />
+            <label for="area_worst" aria-labelledby="areaWorstHelpBlock">Area worst</label>
+            <div id="areaWorstHelpBlock" class="form-text">Value range: 185.2 - 4254</div>
+            <div class="invalid-feedback">An area worst is required.</div>
+        </div>
+        <!-- Smoothness worst input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="smoothness_worst" type="text" placeholder="Smoothness worst" required />
+            <label for="smoothness_worst" aria-labelledby="smoothnessWorstHelpBlock">Smoothness worst</label>
+            <div id="smoothnessWorstHelpBlock" class="form-text">Value range: 0.07 - 0.22</div>
+            <div class="invalid-feedback">A smoothness worst is required.</div>
+        </div>
+        <!-- Compactness worst input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="compactness_worst" type="text" placeholder="Compactness worst" required />
+            <label for="compactness_worst" aria-labelledby="compactnessWorstHelpBlock">Compactness worst</label>
+            <div id="compactnessWorstHelpBlock" class="form-text">Value range: 0.03 - 1.06</div>
+            <div class="invalid-feedback">A compactness worst is required.</div>
+        </div>
+        <!-- Concavity worst input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="concavity_worst" type="text" placeholder="Concavity worst" required />
+            <label for="concavity_worst" aria-labelledby="concavityWorstHelpBlock">Concavity worst</label>
+            <div id="concavityWorstHelpBlock" class="form-text">Value range: 0 - 1.25</div>
+            <div class="invalid-feedback">A concavity worst is required.</div>
+        </div>
+        <!-- Concave points worst input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="concave points_worst" type="text" placeholder="Concave points worst" required />
+            <label for="concave points_worst" aria-labelledby="concavePointsWorstHelpBlock">Concave points worst</label>
+            <div id="concavePointsWorstHelpBlock" class="form-text">Value range: 0 - 0.29</div>
+            <div class="invalid-feedback">A concave points worst is required.</div>
+        </div>
+        <!-- Symmetry worst input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="symmetry_worst" type="text" placeholder="Symmetry worst" required />
+            <label for="symmetry_worst" aria-labelledby="symmetryWorstHelpBlock">Symmetry worst</label>
+            <div id="symmetryWorstHelpBlock" class="form-text">Value range: 0.16 - 0.66</div>
+            <div class="invalid-feedback">A symmetry worst is required.</div>
+        </div>
+        <!-- Fractal dimension worst input -->
+        <div class="form-group form-floating mb-3">
+            <input class="form-control" name="fractal_dimension_worst" type="text" placeholder="Fractal dimension worst" required />
+            <label for="fractal_dimension_worst" aria-labelledby="fractalDimensionWorstHelpBlock">Fractal dimension worst</label>
+            <div id="fractalDimensionWorstHelpBlock" class="form-text">Value range: 0.06 - 0.21</div>
+            <div class="invalid-feedback">A fractal dimension worst is required.</div>
+        </div>
+
+        <!-- Predict button -->
+        <div class="d-grid">
+            <button class="btn btn-primary rounded-pill btn-lg" id="submitButton" type="submit">
+                Predict
+            </button>
+        </div>
+        </div class="form-group form-floating mb-3">
+            <h4 class="text-center prediction-text">{{ prediction_text }}</h4>
+        </div>
+    </form>
+</div>
 {% endblock %}

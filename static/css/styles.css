@@ -2457,6 +2457,7 @@ textarea.form-control-lg {
 .form-floating > .form-control-plaintext::placeholder {
   color: transparent;
 }
+
 .form-floating > .form-control:not(:-moz-placeholder-shown), .form-floating > .form-control-plaintext:not(:-moz-placeholder-shown) {
   padding-top: 1.625rem;
   padding-bottom: 0.625rem;
@@ -7671,6 +7672,10 @@ textarea.form-control-lg {
   margin-bottom: 3rem !important;
 }
 
+.mb-6 {
+  margin-bottom: 4.5rem !important;
+}
+
 .mb-auto {
   margin-bottom: auto !important;
 }
@@ -7755,6 +7760,11 @@ textarea.form-control-lg {
 .px-5 {
   padding-right: 3rem !important;
   padding-left: 3rem !important;
+}
+
+.px-6 {
+  padding-right: 5rem !important;
+  padding-left: 5rem !important;
 }
 
 .py-0 {
@@ -10946,7 +10956,7 @@ section {
 section.cta {
   position: relative;
   padding: 15rem 0;
-  background-image: url("https://source.unsplash.com/5g41N3uRPf8/1500x800");
+  background-image: url("https://source.unsplash.com/u8Jn2rzYIps/900x900");
   background-position: center;
   background-size: cover;
 }
@@ -11159,4 +11169,14 @@ footer a:hover, footer a:active, footer a:focus {
   .masthead .masthead-device-mockup .device-wrapper {
     max-width: 17rem;
   }
+}
+
+.prediction-form {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.prediction-form .prediction-text {
+  padding-top: 9.5rem;
+  padding-bottom: 5rem;
 }
