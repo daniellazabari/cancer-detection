@@ -10940,11 +10940,6 @@ section {
   height: 93.6288088643%;
 }
 
-.device[data-device=iPhoneX][data-orientation=portrait][data-color=black]::after {
-  content: "";
-  background-image: url("../assets/img/portrait_black.png");
-}
-
 .device[data-device=iPhoneX][data-orientation=portrait][data-color=black] .button {
   display: none;
   top: 0%;
@@ -10991,12 +10986,6 @@ section.cta:before {
   width: 70%;
   display: none;
 }
-/* .features-device-mockup .circle .gradient-start-color {
-  stop-color: #4B3580;
-}
-.features-device-mockup .circle .gradient-end-color {
-  stop-color: #618DFF;
-} */
 .features-device-mockup .shape-1 {
   position: absolute;
   height: 1rem;
@@ -11101,7 +11090,6 @@ footer a:hover, footer a:active, footer a:focus {
   position: absolute;
   /* fill: url(#circleGradient); */
   width: 70%;
-  display: none;
 }
 .masthead .masthead-device-mockup .circle .gradient-start-color {
   stop-color: #4B3580;

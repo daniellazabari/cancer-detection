@@ -39,21 +39,6 @@ def health():
     """
     return "ok"
 
-# @app.route("/predict", methods=["POST"])
-# def predict():
-#     feature_dict = request.get_json(force=True)
-#     if not feature_dict:
-#         return {"erro": "Body is empty."}
-#     response = get_model_response(feature_dict)
-#     return render_template("index.html", prediction_text="The patient is more likely to have {} cancer.".format(response["label"]))
-
-# app.route("/results", methods=["POST"])
-# def results():
-#     data = request.get_json(force=True)
-#     prediction = model.predict([np.array(list(data.values()))])
-#     output = prediction[0]
-#     return jsonify(output)
-
 @app.route("/predict", methods=["POST"])
 def predict():
     features = request.form.to_dict()
