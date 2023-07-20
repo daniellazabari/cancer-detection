@@ -30,7 +30,7 @@
   --bs-gray-300: #dee2e6;
   --bs-gray-400: #ced4da;
   --bs-gray-500: #adb5bd;
-  --bs-gray-600: #6c757d;
+  --bs-gray-600: #6c757d; 
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
@@ -73,8 +73,8 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #4B3580;
-  --bs-link-hover-color: #3E2A6F;
+  --bs-link-color: #6c757d ;
+  --bs-link-hover-color: #343a40;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
@@ -10955,7 +10955,7 @@ section {
 
 section.cta {
   position: relative;
-  padding: 15rem 0;
+  padding: 10rem 0;
   background-image: url("https://source.unsplash.com/u8Jn2rzYIps/900x900");
   background-position: center;
   background-size: cover;
@@ -11176,7 +11176,17 @@ footer a:hover, footer a:active, footer a:focus {
   padding-bottom: 5rem;
 }
 
-.prediction-form .prediction-text {
-  padding-top: 9.5rem;
-  padding-bottom: 5rem;
+.prediction-text {
+  margin-top: 0px;
+  margin-bottom: 5rem;
+}
+
+div.about {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+div.about section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }

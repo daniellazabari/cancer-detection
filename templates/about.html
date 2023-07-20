@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- Mashead header-->
-<section class="cta">
+<!-- <section class="cta">
     <div class="cta-content">
         <div class="container px-5">
             <h1 class="text-white display-1 lh-1 mb-4">
@@ -9,6 +9,108 @@
             </h1>
         </div>
     </div>
-</section>
+</section> -->
+
+<header class="masthead">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                    <h1 class="display-1 lh-1 mb-3">About the project</h1>
+                    <p class="lead fw-normal text-muted mb-5">
+                        Leveraging the power of data science and machine learning, this service uses an ensemble of machine learning models to predict breast cancer diagnoses. It's designed with user-friendly web interfaces, deployed within a Docker container for easy scalability and reproducibility. 
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="masthead-device-mockup">
+                    <div class="circle" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <img class="img-fluid rounded-circle" src="https://source.unsplash.com/QEU-QgIOJKA" alt="..." />
+                        <circle cx="50" cy="50" r="50"></circle></div>
+                    <div class="device-wrapper">
+                        <div class="device" data-device="iPhoneX" data-orientation="portrait" data-color="black">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="about">
+    <!-- About the data set -->
+    <section class="about dataset">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div>
+                <h4 class="display-4 lh-1 mb-4">About the Dataset</h4>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">
+                    The web-app uses the <a href="https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data">Breast Cancer Wisconsin (Diagnostic) DataSet</a>, obtained from Kaggle, which contains features computed from a digitized image of a fine needle aspirate (FNA) of a breast mass and describe characteristics of the cell nuclei present in the image. 
+                </p>
+            </div>
+            <!-- <div class="col-sm-8 col-md-6">
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
+            </div> -->
+        </div>
+    </div>
+    </section>
+    <!-- About the model -->
+    <section class="about model">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div>
+                <h4 class="display-4 lh-1 mb-4">The Model</h4>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">
+                    The backbone of the Breast Cancer Prediction Service is an ensemble of various machine learning algorithms - Logistic Regression, Decision Trees, and Support Vector Machines - bound together using a Voting Classifier. 
+                    <br>
+                    I chose an ensemble approach to leverage the diversity of these models and to improve the generalization and robustness of predictions. The models were trained and evaluated using an 80-20 train-test split strategy and achieved an accuracy of 97.2% on the test set.
+                    <br>
+                    Additionally, the project employs a pipeline that bundles the preprocessing and modeling steps together so that the whole bundle can be done in a single step. I choose to use a pipeline to ensure cleaner and more concise code, and to make the project easier to productionize.
+                </p>
+            </div>
+            <!-- <div class="col-sm-8 col-md-6">
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
+            </div> -->
+        </div>
+    </div>
+    </section>
+    <!-- About the web app -->
+    <section class="about webapp">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div>
+                <h4 class="display-4 lh-1 mb-4">The Web App and Docker Deployment</h4>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">
+                    The web app is built using Flask and deployed within a Docker container. The app is designed with an interface that provides users with an easy and accesible way to utelize the model and get predictions in real-time. 
+                    <br>
+                    Users simply need to input values for various features, such as texture mean, area mean, concavity mean, etc., through a form on the website.
+                    <br>
+                    Using Docker tp deploy the app ensures that the app runs seamlessly on any machine, regardless of the operating system or hardware, which aids in reproducibility and scalability.
+                </p>
+            </div>
+            <!-- <div class="col-sm-8 col-md-6">
+                <div class="px-5 px-sm-0"><img class="img-fluid rounded-circle" src="https://source.unsplash.com/u8Jn2rzYIps/900x900" alt="..." /></div>
+            </div> -->
+        </div>
+    </div>
+    </section>
+    <!-- A personal note -->
+    <section class="about personal">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center justify-content-center justify-content-lg-between">
+            <div>
+                <h4 class="display-4 lh-1 mb-4">A personal note</h4>
+                <p class="lead fw-normal text-muted mb-5 mb-lg-0">
+                    Creating this project has been an enriching and fulfilling journey. The intersection of healthcare and technology, especially in fields like Machine Learning and Data Science, has always fascinated me. 
+                    With this project, I aspired to showcase my skills in these fields and my commitment to using technology to make a positive impact.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </div>
+    </section>
+</div>
+
     
 {% endblock %}

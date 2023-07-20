@@ -37,8 +37,8 @@ ensemble = VotingClassifier(estimators)
 # Make preprocess pipeline
 pipe = Pipeline([
     ('imputer', SimpleImputer()), # Missing values
-    ('scalar', MinMaxScaler(feature_range=(0, 1))),
-    ('model', ensemble)
+    ('scalar', MinMaxScaler(feature_range=(0, 1))), # Scaling
+    ('model', ensemble) # Ensemble model
 ])
 
 # Train the model
